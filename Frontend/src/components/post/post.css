@@ -1,0 +1,61 @@
+.post{
+    width: 355px;
+    margin: 0 25px 40px 25px;
+    display: flex;
+    flex-direction: column;
+    
+}
+.postimg{
+    width: 100%;
+    height: 280px;
+    border-radius: 7px;
+    object-fit: cover;
+}
+.postinfo{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.postcat{
+    line-height: 20px;
+    font-family: 'varela Round', Arial, Helvetica, sans-serif;
+    color: #be9656;
+    font-size: 11px;
+    margin-top: 15px;
+    margin-right: 10px;
+    cursor: pointer;
+}
+.posttitle{
+    font-family: 'Josefin Sans', Arial, Helvetica, sans-serif;
+    font-size: 24px;
+    font-weight: 700;
+    margin-top: 15px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.postdate{
+    font-family: 'Lora', serif;
+    font-style: italic;
+    font-size: 13px;
+    color: #ddd;
+    margin-top: 15px;
+    font-weight: 400;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.postdesc{
+    line-height: 24px;
+    font-family: "Varela Round", Arial, Helvetica, sans-serif;
+    font-weight: 400;
+    font-size: 14px;
+    color: #444444;
+    margin-top: 15px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;
+}

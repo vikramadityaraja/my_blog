@@ -1,0 +1,22 @@
+GET http://localhost:4000/register
+
+###
+
+POST http://localhost:4000/register
+Content-Type: application/json
+
+{
+    "Username" : "snsd2",
+    "Email" : "snsd2@gmail.com",
+    "Password": "password"
+}
+
+###
+
+POST http://localhost:4000/login
+Content-Type: application/json
+
+{
+ "Username" : "snsd2",
+ "Password": "password"
+}
