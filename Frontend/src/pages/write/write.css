@@ -1,22 +1,25 @@
 .write{
     padding-top: 50px;
+    height: 100vh;
+    width: 100vw;
+   
 }
 .writeimg{
-    height: 250px;
-    width: 70vw;
-    margin-left: 150px;
-    border-radius: 10px;
+    
+   
+    width: 100%;
+    height: 15em;
+    
+    object-fit: cover;
+    /* margin-left: 39px; */
+    
+    border-radius: 18px;
+    margin-bottom: 9px;
     object-fit: cover;
 
 }
-.writeform{
-    position: relative;
-}
-.writeformgroup{
-    margin-left: 150px;
-    display: flex;
-    align-items: center;
-}
+
+
 .writeicon{
     height: 25px;
     width: 25px;
@@ -29,27 +32,145 @@
     color: gray;
     cursor: pointer;
 }
-.writeinput{
+/* .writeinput{
     font-size: 30px;
     border: none;
     padding: 20px;
-    width: 70vh;
-}
+    width: 50vh;
+} */
 .writeinput:focus{
     outline: none;
 }
 .writetext{
     font-size: 20px;
     height: 100vh;
+    width: 55vw;
 }
 .writesubmit{
     position: absolute;
-    top: 20px;
-    right: 50px;
+    top: 55vh;
+    
+    padding: 8px 12px;
     cursor: pointer;
-    border-radius: 10px;
+    border-radius: 18px;
     color: white;
     background-color: teal;
     border: none;
-    padding: 3px;
+
+}
+
+
+
+
+
+
+
+
+
+.write{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box ;
+    display: flex;
+    width: 100vw;
+    gap: 20px;
+  
+  }
+  
+  
+  
+  .left{
+    flex:5;
+    padding:40px 20px;
+    
+  }
+  /* .blogpic{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+  } */
+
+  .right{
+    
+    margin-right: 25px;
+    /* background-color: aqua; */
+    display: flex;
+    flex: 2;
+    flex-direction: column;
+    
+    margin-top: 44px;
+  }
+  
+  .quill{
+  height: 100%;
+  border: none;
+  }
+  
+  .editorcontainer{
+    height: 300px;
+    overflow: scroll;
+    margin-top: 20px;
+    
+  }
+  
+  
+  /* .quill .ql-editor{
+    height: 100%;
+    width:100%;
+  } */
+  
+  /* input[type='text']{ */
+
+    .writeinput{
+    width: 100%;
+    padding: 8px 12px;
+    border: none;
+    outline: none;
+    font-size: 17px;
+    letter-spacing: 0.5px;
+    margin-top: 20px;
+    border-radius: 5px;
+    border: 1px solid lightgray;
+    box-sizing: border-box;
+    
+  }
+  
+  button{
+    cursor: pointer;
+  }
+  .buttons{
+    display: flex;
+    justify-content: space-around;
+  }
+  .menu2{
+    border: 1px solid lightgray;
+    border-radius: 15px;
+    padding: 9px 0 15px 10px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+  }
+  .menu2 span{
+    display: flex;
+    align-items: center;
+    margin-bottom: 6px;
+    
+  }
+  
+  .menu2 label {
+    /* Other styling... */
+    text-align: right;
+    clear: both;
+    display: inline-block;
+    margin-left:15px;
+  }
+  input[type='radio']{
+    float: left;
+    margin: 0px;
+    width: min-content;
+  }
+.menu2 h1{
+  margin-bottom: 15px;
 }

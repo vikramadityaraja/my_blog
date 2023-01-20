@@ -1,9 +1,21 @@
 import "./settings.css";
 import Sidebar from "../../components/sidebar/Sidebar";
+import { signOut } from "firebase/auth";
+import { auth } from "../../firebase";
+import { useContext } from "react";
+import { AuthContext } from "../../authcontext";
 
-export default function Settings({setUser}) {
+
+
+export default function Settings() {
   
-  const logout = () => setUser('')
+ /* const logout = () => signOut(auth).then(() => {
+  navigate('/login') 
+}).catch((error) => {
+  console.log(error) 
+});  */
+
+const User = useContext(AuthContext);
   return (
     <div className="settings">
       <div className="settingsWrapper">
@@ -11,16 +23,17 @@ export default function Settings({setUser}) {
           <span className="settingsTitleUpdate">Update Your Account</span>
           <div>
             <span className="settingsTitleDelete">Delete Account</span>   
-            <span className="settingsTitleDelete space" onClick={logout}>Logout</span>   
+            <span className="settingsTitleDelete space" onClick={() => signOut(auth)}>Logout</span>   
           </div>
         </div>
         <form className="settingsForm">
           <label>Profile Picture</label>
           <div className="settingsPP">
-            <img
+            {/* <img
               src="https://images.pexels.com/photos/6685428/pexels-photo-6685428.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500"
               alt=""
-            />
+            /> */}
+            <img src={User.photoURL} alt='' />
             <label htmlFor="fileInput">
               <i className="settingsPPIcon far fa-user-circle"></i>{" "}
             </label>

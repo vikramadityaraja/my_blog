@@ -1,8 +1,11 @@
 import './TopBar.css'
 import { Link } from 'react-router-dom'
+import { useContext } from 'react'
+import { AuthContext } from '../../authcontext'
 
-function TopBar({User, setUser}) {
-  
+
+function TopBar({User}) {
+  const User1 = useContext(AuthContext)
   return (
     <div className='top'>
         <div className='topleft'>
@@ -17,6 +20,8 @@ function TopBar({User, setUser}) {
               <Link className='link' to='/'>HOME</Link></li>
             <li className='toplistitem'> ABOUT</li>
             <li className='toplistitem'> CONTACT</li>
+            <li className='toplistitem'> 
+              <Link className='link' to='/write'>WRITE</Link></li>
             {/* {!User &&<li className='toplistitem'> 
                <Link className='link' to='/register'>REGISTER</Link></li>} */}
             { User && <li className='toplistitem'> LOGOUT</li>}
@@ -25,7 +30,8 @@ function TopBar({User, setUser}) {
         <div className='topright'>
         {User?(
           <Link className='link' to='/settings'>
-             <img className='profileimg' alt='profileimg' src='https://image.freepik.com/free-vector/man-profile-cartoon_18591-58482.jpg'/>
+             <img className='profileimg' alt='profileimg' src={User1.photoURL}/>
+             {/* <img className='profileimg' alt='profileimg' src='https://image.freepik.com/free-vector/man-profile-cartoon_18591-58482.jpg'/> */}
           </Link>
         ): (
           <ul className="toplist">

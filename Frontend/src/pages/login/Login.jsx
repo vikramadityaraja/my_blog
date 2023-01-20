@@ -1,15 +1,21 @@
 import "./login.css";
-import { Link, redirect as Redirect} from "react-router-dom";
-import axios from "axios";
+import { Link, useNavigate} from "react-router-dom";
+import { signInWithEmailAndPassword } from "firebase/auth";
+import { auth } from "../../firebase";
 import { useState } from "react";
 
 export default function Login() {
 
-  
+  const navigate = useNavigate();
   const [ State, setState] = useState({
     Username: '',
     Password : ''
   })
+
+  const [err, setErr] = useState(false);
+  const [loading, setLoading] = useState(false)  ;
+  const [errcode, setErrcode] = useState(false);
+
   const onchange = (e) => {
     const value = e.target.value;
     setState({
@@ -17,22 +23,37 @@ export default function Login() {
     }
   )}
 
-  const submitlogin = () => {
-
+  const submitlogin = async (e) => {
+    e.preventDefault();
     const userdata = {
-      Username : State.Username,
+      Email : State.Email,
       Password : State.Password
     }
 
-    const headers= {
-      headers : {
-      'content-Type' : 'application/json'
-    }}
+    try {
 
-    axios.post("http://localhost:4000/login",
-        userdata,
-        headers).then(res => window.localStorage.setItem("token", res.data.token),
-        <Redirect to="/" />).catch(err => console.log(err))
+      await signInWithEmailAndPassword(auth, userdata.Email, userdata.Password)
+         .then((userCredential) => {
+           // Signed in 
+           const user = userCredential.user;
+           console.log(user);
+           navigate('/')
+         })
+         .catch((error) => {
+           const errorCode = error.code;
+           const errorMessage = error.message;
+           console.log(errorCode);
+           console.log(errorMessage);
+           error.code === "auth/user-not-found" && setErrcode(true) ;
+         });
+     } catch (error) {
+       setErr(true);
+       setLoading(false);
+       const errorCode = error.code;
+       const errorMessage = error.message;
+       console.log(errorCode);
+       console.log(errorMessage)
+     }
   }
 
 
@@ -42,24 +63,28 @@ export default function Login() {
         Login</span>
       <form className="loginForm" onSubmit={submitlogin}>
 
-        <label>Username</label>
+        <label>Email</label>
         <input 
-          className="loginInput" 
+          id="loginInput" 
           type="text" 
-          placeholder="Enter your User name..."
+          placeholder="Enter your email..."
           onChange={onchange}
-          value = {State.Username}
-          name = 'Username' />
+          value = {State.Email}
+          name = 'Email' />
 
         <label>Password</label>
         <input 
-          className="loginInput" 
+          id="loginInput" 
           type="password" 
           placeholder="Enter your password..."
           onChange={onchange}
           value = {State.Password}
           name = 'Password' />
 
+        { loading && <span>Logging in..</span>}
+        {err && <span style={{color:"red", marginTop:10}}>Error!</span>}
+        {errcode && <span style={{color:"red", marginTop:10}}>Email already registered!</span>}
+ 
         <button className="loginButton">Login</button>
       </form>
 

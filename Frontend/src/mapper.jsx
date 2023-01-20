@@ -17,7 +17,7 @@ const mapper = [
     {
         img: './pics/6.jpeg'
     },
-    
+
     
 ]
 
