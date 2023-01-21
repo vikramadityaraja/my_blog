@@ -21,10 +21,11 @@ background-image: url(https://toplinemanagement.com/wp-content/uploads/2017/01/t
   }
   .registerTitle {
     font-size: 50px;
+    margin-top:40px;
   }
   
   .registerForm {
-    margin-top: 20px;
+    margin-top: 10px;
     display: flex;
     flex-direction: column;
     width: 22vw;
