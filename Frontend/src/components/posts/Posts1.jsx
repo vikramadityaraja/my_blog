@@ -10,7 +10,14 @@ function Posts1() {
 
   const User  = useContext(AuthContext);
  const [posts, setPosts] = useState([]);
-  console.log(posts)
+  console.log('posts1:' +posts)
+
+  const deletepost = (id) => {
+   const updatedposts = posts.filter(post => post.postid!==id);
+   setPosts(updatedposts);
+
+
+  }
 
   useEffect(() => {
     const unSub = () => {onSnapshot(doc(db, "userPosts", User.uid), (doc) => {
@@ -26,7 +33,7 @@ function Posts1() {
   }, [User.uid]);
 
   console.log(posts) 
-const Mappers = posts.map((post, index) => <Post1 key = {index} post= {post}/>)
+const Mappers = posts.map((post, index) => <Post1 key = {index} post= {post} deletepost={deletepost}/>)
   return (
     <div className='posts'>
       {Mappers}

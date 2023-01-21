@@ -64,6 +64,7 @@ function Write() {
                   date: Timestamp.now(),
                   formatdate: formatDate,
                   img: downloadURL,
+                  
                 }),
               });
             });
@@ -90,6 +91,7 @@ function Write() {
             date: Timestamp.now(),
             formatdate: formatDate,
             img:downloadURL,
+            
           }),
         });
       })

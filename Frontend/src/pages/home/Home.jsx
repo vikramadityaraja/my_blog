@@ -1,6 +1,6 @@
 import './home.css'
 import Header from '../../components/header/Header'
-import Posts from '../../components/posts/Posts'
+import Posts1 from '../../components/posts/Posts1'
 import Sidebar from '../../components/sidebar/Sidebar'
 
 
@@ -10,8 +10,7 @@ function Home() {
       
       <Header/>
       <div className='home'>
-
-          <Posts/>
+          <Posts1/>
           <Sidebar/>
       </div>
     </>
