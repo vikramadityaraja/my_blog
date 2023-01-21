@@ -73,6 +73,7 @@ await updatePassword(User, password).then(() => {
               type="file"
               style={{ display: "none" }}
               className="settingsPPInput"
+              onChange= {(e)=> setPhoto(e.target.files[0])}
             />
           </div>
           <label>Username</label>
