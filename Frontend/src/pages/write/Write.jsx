@@ -16,7 +16,7 @@ import { app } from '../../firebase';
 import { AuthContext } from '../../authcontext';
 import Moment from 'moment';
 import { useNavigate } from 'react-router-dom';
-import parse from 'html-react-parser';
+import {convert} from 'html-to-text'
 /*https://th.bing.com/th/id/R.82d5239682e6fd0b52118d398cbeda17?rik=3UyFivgb%2bHOIfQ&riu=http%3a%2f%2fwallup.net%2fwp-content%2fuploads%2f2016%2f01%2f98920-nature-mountain-trees.jpg&ehk=2w1K%2fPMdEjDkye7O%2fVWZlCGILuypz7i4RypTODTtCa0%3d&risl=&pid=ImgRaw&r=0*/
 
 
@@ -25,7 +25,10 @@ function Write() {
   const [value, setValue] = useState('');
 
   console.log('value:' + value)
-  
+  const text = convert(value, {
+    wordwrap: 130
+  });
+  console.log('text:' + text)  
 
   const [option, setOption] = useState('');
   const [title, setTitle] = useState('');
@@ -54,7 +57,7 @@ function Write() {
               await updateDoc(doc(db, "userPosts", User.uid), {
                 posts: arrayUnion({
                   postid: uuid(),
-                  desc:value,
+                  desc:text,
                   userid: User.uid,
                   title,
                   tag:option,
@@ -80,7 +83,7 @@ function Write() {
         await updateDoc(doc(db, "userPosts", User.uid), {
           posts: arrayUnion({
             postid: uuid(),
-            desc:value,
+            desc:text,
             userid: User.uid,
             title,
             tag:option,

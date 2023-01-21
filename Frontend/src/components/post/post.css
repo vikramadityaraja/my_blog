@@ -61,3 +61,19 @@
     -webkit-line-clamp: 4;
     -webkit-box-orient: vertical;
 }
+
+.postimage{
+    position:relative;
+}
+
+.postdelete{
+    display:none
+}
+.postimage:hover .postdelete{
+    display:block;
+    position:absolute;
+    right:5px;
+    color:white;
+    top:5px;
+    font-size:20px
+}

@@ -67,7 +67,7 @@ export default function Login() {
         <input 
           id="loginInput" 
           type="text" 
-          placeholder="Enter your email..."
+          placeholder="snsd@gmail.com"
           onChange={onchange}
           value = {State.Email}
           name = 'Email' />
@@ -76,7 +76,7 @@ export default function Login() {
         <input 
           id="loginInput" 
           type="password" 
-          placeholder="Enter your password..."
+          placeholder="123456"
           onChange={onchange}
           value = {State.Password}
           name = 'Password' />

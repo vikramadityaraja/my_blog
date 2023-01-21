@@ -14,6 +14,7 @@ function TopBar({User}) {
           <i className="topicon fa-brands fa-facebook"></i>
           <i className="topicon fa-brands fa-pinterest"></i>
         </div>
+        
         <div className='topcenter'>
           <ul className='toplist'>
             <li className='toplistitem'> 

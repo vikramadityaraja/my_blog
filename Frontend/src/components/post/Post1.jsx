@@ -1,5 +1,5 @@
 import './post.css'
-
+import { MdDelete } from "react-icons/md";
 
 function Post1( {post}) {
 
@@ -8,9 +8,12 @@ function Post1( {post}) {
   console.log(post)
   return (
     <div className='post'>
+      <div className='postimage'>
         <img className='postimg' 
         src={post.img} 
         alt=''/>
+        <MdDelete className='postdelete'/>
+      </div>  
         <div className='postinfo'>
           <span className='postcat'>{post.tag}</span>
           
