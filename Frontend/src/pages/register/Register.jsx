@@ -4,17 +4,19 @@ import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
 import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
-import { doc, setDoc} from 'firebase/firestore';
+import { doc, setDoc,arrayUnion, Timestamp} from 'firebase/firestore';
 import { TiTick } from 'react-icons/ti';
 import { auth, storage, db } from "../../firebase";
-
+import { v4 as uuid } from "uuid";
+import Moment from 'moment';
+import samplepic from '../../pic/defaultblogpic.jpg'
 
 const Register = () => {
 
   const Navigate = useNavigate();
 
   const [errcode, setErrcode] = useState(false);
-
+  const formatDate = Moment().format('dddd, MMMM Do YYYY, h:mm:ss a')
   const [ State, setState] = useState({
     Username: '',
     Email: '',
@@ -54,13 +56,25 @@ const Register = () => {
             //create user on firestore
             await setDoc(doc(db, "users", res.user.uid), {
               uid: res.user.uid,
-              username:data.Username,
+              displayName:data.Username,
               email:data.Email,
               photoURL: downloadURL,
             });
 
             //create empty user chats on firestore
-            await setDoc(doc(db, "userPosts", res.user.uid), {});
+            await setDoc(doc(db, "userPosts", res.user.uid), {
+              posts: arrayUnion({
+                postid: uuid(),
+                desc:"This is the sample blog post!",
+                userid: res.user.uid,
+                title:"First sample blog",
+                tag:"post",
+                date: Timestamp.now(),
+                formatdate: formatDate,
+                img:samplepic,
+                
+              }),
+            });
             Navigate('/login')
           
           } catch (error) {
@@ -81,20 +95,7 @@ const Register = () => {
       error.code === "auth/email-already-in-use" && setErrcode(true) ;
       console.log(errorMessage)
     }
-    
-
-
-    /*axios.post("http://localhost:4000/register",data,{
-      headers: {
-        'Content-Type': 'application/json'
-      }
-    }
-    ).then((res) => {
-      alert('registered')
-      console.log(res)
-      Navigate('/login')
-     }).catch((error) => console.log(error.code))
-    }*/}
+  }
     return (
         <div className="register">
         <span className="registerTitle">Register</span>

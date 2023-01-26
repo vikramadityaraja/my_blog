@@ -11,7 +11,7 @@ export const AuthContextProvider = ({children}) => {
         const unsub = onAuthStateChanged(auth, (user) => {
             
             setUser(() => user)
-            console.log(user?.uid)
+            console.log(user)
             
     }); 
     

@@ -30,3 +30,11 @@
     margin-top: 58px;
     object-fit: cover;
 }
+
+@media screen and (max-width: 468px) {
+    
+    .headerimg{
+        width:100vw;
+        height: 300px;
+    }
+  }

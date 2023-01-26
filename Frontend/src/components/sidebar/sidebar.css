@@ -60,3 +60,18 @@
     margin-right: 15px;
     font-size: 16px;
 }
+
+@media screen and (max-width: 468px) {
+    .sidebar{
+        max-height: max-content;
+        bottom: 0;
+        width: 100vw;
+        font-size: small;
+        background-color: rgba(0, 0, 0, 0.071);
+        margin: 0;
+    }
+    .sidebartitle{
+        margin-top: 1px;
+        padding: 0;
+    }
+}

@@ -34,7 +34,7 @@ export default function Login() {
 
       await signInWithEmailAndPassword(auth, userdata.Email, userdata.Password)
          .then((userCredential) => {
-           // Signed in 
+           // Sign in 
            const user = userCredential.user;
            console.log(user);
            navigate('/')
@@ -83,7 +83,7 @@ export default function Login() {
 
         { loading && <span>Logging in..</span>}
         {err && <span style={{color:"red", marginTop:10}}>Error!</span>}
-        {errcode && <span style={{color:"red", marginTop:10}}>Email already registered!</span>}
+        {errcode && <span style={{color:"red", marginTop:10}}>Email not registered!</span>}
  
         <button className="loginButton">Login</button>
       </form>

@@ -1,5 +1,6 @@
 .post{
-    width: 355px;
+    
+    width: 355px; 
     margin: 0 25px 40px 25px;
     display: flex;
     flex-direction: column;
@@ -76,4 +77,19 @@
     color:white;
     top:5px;
     font-size:20px
+}
+
+@media screen and (max-width: 468px) {
+    .post{
+        width: 100%;
+        background-color: rgba(227, 222, 222, 0.299);
+        border-radius: 18px;
+        padding:5px;
+}
+.postimg{
+    height: 180px;
+}
+.posttitle{
+    width: 90%;
+}
 }

@@ -1,7 +1,6 @@
 import { BrowserRouter as Router, Routes, Route,  Navigate } from "react-router-dom";
 import { useContext } from "react";
 import {AuthContext} from './authcontext';
-
 import Home from "./pages/home/Home";
 import Login from "./pages/login/Login";
 import Register from "./pages/register/Register";
@@ -33,21 +32,9 @@ function App() {
         <Route path='/login' element= { User ? <Home/> : <Login/>}></Route>
         <Route path="/post/:id" element ={<Single/>}></Route>
         <Route path='/write' element= { User?<Write/>:<Login/>}></Route>
-        {/* <Route path='/settings'element= {<Settings/>}></Route>  */}
         <Route path='/settings'element= {User?<Settings/>:<Login/>}></Route>
       </Routes> 
     
-      
-       {/* <Routes>  
-        <Route path='/' exact element={ <ProtectedRoute><Home/></ProtectedRoute>}></Route>
-        <Route path='/posts'element= {<Home/>}></Route>
-        <Route path='/register'element= {<Register/>}></Route>
-        <Route path='/login' element= { <Login/>}></Route>
-        <Route path="/post/:id" element ={<Single/>}></Route>
-        <Route path='/write' element= { <Write/>}></Route>
-        <Route path='/settings'element= {<Settings setUser = {setUser}/>}></Route> 
-        <Route path='/settings'element= {<Settings/>}></Route>
-      </Routes> */}
     </Router> 
   );
 }

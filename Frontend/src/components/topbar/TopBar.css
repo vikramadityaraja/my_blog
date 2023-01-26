@@ -55,3 +55,29 @@
     cursor: pointer;
     margin-left: 15px;
 }
+
+
+@media screen and (max-width: 468px) {
+    .about, .contact,.topleft, .searchicon {
+    display: none;
+   }
+   .top{
+    position: -webkit-sticky;
+    position: sticky;
+    top:0px;
+    z-index: 999;
+   display: flex;
+   flex-direction: row-reverse;
+   background-color: rgba(246, 245, 245, 0.983);
+   box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.357);
+    
+   }
+   .profileimg{
+        margin-top: 5px;
+        margin-left: -45px;
+    }
+
+    .toplistitem{
+        margin-top: 10px;
+    }
+}

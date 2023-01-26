@@ -70,3 +70,12 @@ background-image: url(https://toplinemanagement.com/wp-content/uploads/2017/01/t
     color: white;
     border-radius: 10px;
   }
+
+  @media screen and (max-width: 468px) {
+    .registerButton {
+      width: 25vw;
+    }
+    .registerForm {
+      width: 60vw;
+    }
+  }

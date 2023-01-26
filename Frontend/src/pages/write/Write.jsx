@@ -2,12 +2,7 @@ import { useState, useContext } from 'react'
 import { ref, uploadBytesResumable, getDownloadURL, getStorage } from "firebase/storage";
 import ReactQuill from 'react-quill';
 import 'react-quill/dist/quill.snow.css';
-import {
-  arrayUnion,
-  doc,
-  Timestamp,
-  updateDoc,
-} from "firebase/firestore";
+import {arrayUnion,doc,Timestamp,updateDoc} from "firebase/firestore";
 import { db } from "../../firebase";
 import { v4 as uuid } from "uuid";
 import defaultblogpic from '../../pic/defaultblogpic.jpg';
@@ -28,7 +23,7 @@ function Write() {
   const text = convert(value, {
     wordwrap: 130
   });
-  console.log('text:' + text)  
+    
 
   const [option, setOption] = useState('');
   const [title, setTitle] = useState('');
@@ -98,34 +93,6 @@ function Write() {
       }
         )};
       
-      
-
- /*     uploadTask.on('state_changed', 
-        (snapshot) => {
-    
-          const progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
-          console.log('Upload is ' + progress + '% done');
-          switch (snapshot.state) {
-            case 'paused':
-              console.log('Upload is paused');
-              break;
-            case 'running':
-              console.log('Upload is running');
-              break;
-            default:
-              console.log('image uploading default')
-          }
-        }, 
-        (error) => {
-          console.log(error.message)
-        }, 
-       () => {
-          
-          getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
-            console.log('File available at', downloadURL);
-
-          });
-        })  */
         setFile('');
         setOption('');
         setTitle('');

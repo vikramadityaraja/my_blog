@@ -24,7 +24,7 @@ function Singlepost() {
                 <span className='singlepostdate'>
                     1 hour ago
                 </span>
-                </div>
+            </div>
                 <p className='singlepostdesc'>
                     <LoremIpsum p={3}/>
                 </p>

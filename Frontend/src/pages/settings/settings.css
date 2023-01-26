@@ -21,8 +21,9 @@
   
   .settingsTitleDelete {
     color: red;
-    font-size: 12px;
+    font-size: 15px;
     cursor: pointer;
+    text-decoration:underline;
   }
   
   .settingsForm {
@@ -106,4 +107,34 @@
   .space:nth-child(2){
     margin-left: 7px;
     cursor: pointer;
+  }
+
+  @media screen and (max-width: 468px) {
+    .settings{
+      flex-direction: column;
+    }
+    #sidebarsettings{
+      display: none;
+    }
+    .settingsTitle{
+      flex-direction: column;
+    }
+    .delnsign{
+      width: 100%;
+      display: flex;
+      text-decoration: none;
+    justify-content:flex-end;
+    }
+    .settingsTitleDelete{
+        color: rgba(0, 0, 0, 0.629);
+    }
+    .space{
+      color: red;
+    }
+    .settingsTitleUpdate {
+      font-size: 30px;
+    }
+    .settingsWrapper{
+      margin-bottom: 30px;
+    }
   }

@@ -17,7 +17,7 @@ function Post1( {post, deletepost}) {
 
   deletepost(post.postid);
 const userinforef = doc(db, "userPosts", User.uid);
-//Remove the 'capital' field from the document
+//Remove the post from the document
 try {
   await updateDoc(userinforef,{
     posts: arrayRemove({
